@@ -122,15 +122,10 @@ async function loadHomepageArtwork() {
   const image = document.querySelector("#homepage-poster");
   if (!image) return;
   try {
-    const chunks = await Promise.all(
-      Array.from({ length: 7 }, (_, index) => index + 1).map(async (number) => {
-        const assetUrl = new URL(`assets/homepage-screen-${String(number).padStart(2, "0")}.b64`, import.meta.url);
-        const response = await fetch(assetUrl);
-        if (!response.ok) throw new Error(`Impossible de charger l’illustration (${response.status})`);
-        return (await response.text()).trim();
-      })
-    );
-    const encoded = chunks.join("");
+    const assetUrl = new URL("assets/homepage-screen.webp.b64", import.meta.url);
+    const response = await fetch(assetUrl);
+    if (!response.ok) throw new Error(`Impossible de charger l’illustration (${response.status})`);
+    const encoded = (await response.text()).trim();
     const binary = atob(encoded);
     const bytes = new Uint8Array(binary.length);
     for (let index = 0; index < binary.length; index += 1) {
