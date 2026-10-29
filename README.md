@@ -39,3 +39,17 @@ Puis ajoutez les fichiers de QR générés dans `assets/`. Scannez le code impri
 - URL HTTPS définitive : vérifiez la page en ligne avant de générer le QR.
 
 Les photos manquantes sont retirées de la galerie sans casser les autres sections. La boîte d'agrandissement des photos prend en charge le clavier, et la page respecte la préférence système de réduction des animations.
+
+
+## Écran d'accueil demandé par les mariés
+
+L'accueil affiche désormais l'illustration validée par le client comme écran visuel principal. Le fichier source compressé est stocké dans `assets/homepage-screen.webp.b64`, puis chargé par `app.js` en image WebP. Les zones transparentes positionnées sur le visuel rendent le bouton « Découvrir notre menu », le bouton hamburger et les quatre onglets du bas cliquables. Les rubriques réelles Menu, Galerie et Message restent présentes sous cet écran.
+
+Le visuel mobile est volontairement conçu pour reproduire exactement la capture de référence. Les photos intégrées dans cette image sont celles du graphisme approuvé ; les photos originales envoyées par le client restent disponibles dans la galerie détaillée sous l'écran d'accueil.
+
+Après déploiement, contrôler sur téléphone :
+- l'image d'accueil se charge sans afficher le bloc de secours ;
+- le bouton « Découvrir notre menu » ouvre la section Menu ;
+- l'icône hamburger affiche les liens de navigation ;
+- les onglets Galerie et Message ouvrent les bonnes sections ;
+- la barre de navigation mobile réapparaît lorsque l'invité quitte l'écran d'accueil.
