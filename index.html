@@ -26,38 +26,28 @@
   </header>
 
   <main>
-    <section id="accueil" class="hero" aria-labelledby="hero-title">
-      <button class="hero-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-flyout"><span></span><span></span><span></span></button>
-      <nav id="mobile-flyout" class="mobile-flyout" aria-label="Menu du mariage" hidden>
-        <a href="#accueil">Accueil</a><a href="#menu">Notre menu</a><a href="#galerie">Souvenirs de la dot</a><a href="#message">Message des mariés</a>
-      </nav>
-      <div class="hero-brand">
-        <span class="petal petal-one" aria-hidden="true">✿</span>
-        <span class="petal petal-two" aria-hidden="true">❀</span>
-        <div class="couple-emblem" aria-hidden="true"><span class="heart-outline heart-outline-pink">♡</span><span class="heart-outline heart-outline-purple">♡</span></div>
-        <h1 id="hero-title"><span class="couple-names"><i>Sosthene</i> <b>&amp;</b> <i>Ruth</i></span></h1>
-        <p class="hero-tagline">Une alliance bénie de Dieu</p>
-        <div class="heart-rule" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+    <section id="accueil" class="hero-poster" aria-label="Accueil du mariage de Sosthene et Ruth">
+      <div class="poster-canvas">
+        <img id="homepage-poster" src="" alt="Page d’accueil du mariage de Sosthene et Ruth : cœurs entrelacés, roses roses et violettes, photo du couple, verset de 1 Corinthiens 16:14, bouton Découvrir notre menu et navigation mobile." fetchpriority="high">
+        <div class="poster-fallback" hidden>
+          <p class="script">Sosthene &amp; Ruth</p>
+          <p>Bienvenue à notre mariage</p>
+          <p>« Que tout ce que vous faites se fasse avec amour. »</p>
+          <a href="#menu">Découvrir notre menu</a>
+        </div>
+        <button class="poster-hotspot poster-hamburger-toggle hero-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-flyout"></button>
+        <nav id="mobile-flyout" class="mobile-flyout" aria-label="Menu du mariage" hidden>
+          <a href="#accueil">Accueil</a>
+          <a href="#menu">Notre menu</a>
+          <a href="#galerie">Souvenirs de la dot</a>
+          <a href="#message">Message des mariés</a>
+        </nav>
+        <a class="poster-hotspot poster-cta" href="#menu" aria-label="Découvrir notre menu"></a>
+        <a class="poster-hotspot poster-tab poster-tab-accueil" href="#accueil" aria-label="Accueil"></a>
+        <a class="poster-hotspot poster-tab poster-tab-menu" href="#menu" aria-label="Menu"></a>
+        <a class="poster-hotspot poster-tab poster-tab-galerie" href="#galerie" aria-label="Galerie"></a>
+        <a class="poster-hotspot poster-tab poster-tab-message" href="#message" aria-label="Message"></a>
       </div>
-
-      <figure class="hero-photo-frame">
-        <span class="photo-flower photo-flower-left" aria-hidden="true">✿</span>
-        <span class="photo-flower photo-flower-right" aria-hidden="true">❀</span>
-        <img src="assets/photo_dot_02.webp" alt="Sosthene et Ruth réunis pendant la cérémonie traditionnelle de la dot" fetchpriority="high">
-      </figure>
-
-      <div class="verse-card">
-        <span class="verse-cross" aria-hidden="true">✝</span>
-        <span class="verse-rule" aria-hidden="true"></span>
-        <p class="verse-text" data-content="verseText"></p>
-        <strong class="verse-reference" data-content="verseReference"></strong>
-        <span class="verse-heart" aria-hidden="true">♥</span>
-      </div>
-
-      <div class="hero-actions">
-        <a class="button button--primary" href="#menu"><span aria-hidden="true">♧</span> Découvrir notre menu <b aria-hidden="true">›</b></a>
-      </div>
-      <div class="hero-bottom-florals" aria-hidden="true"><span>✿</span><span>❀</span><span>✿</span></div>
     </section>
 
     <section id="menu" class="menu-section" aria-labelledby="menu-title">
