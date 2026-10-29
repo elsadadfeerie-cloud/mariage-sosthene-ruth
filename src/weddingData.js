@@ -12,21 +12,21 @@ export const weddingData = {
     {
       title: "Tchêp au poulet frit",
       icon: "🍗",
-      imageParts: ["tchep-01.b64", "tchep-02.b64", "tchep-03.b64", "tchep-04.b64"],
+      image: "assets/menu-ultra/tchep-poulet.webp",
       alt: "Assiette de tchêp accompagnée de poulet frit et de légumes",
       description: "Du riz savoureux accompagné de poulet frit."
     },
     {
       title: "Attiéké au poisson frit",
       icon: "🐟",
-      imageParts: ["attieke-01.b64", "attieke-02.b64", "attieke-03.b64", "attieke-04.b64", "attieke-05a.b64", "attieke-05b.b64", "attieke-06.b64", "attieke-07.b64"],
+      image: "assets/menu-ultra/attieke-poisson.webp",
       alt: "Poisson frit servi avec attiéké et crudités",
       description: "Attiéké accompagné de poisson frit et de crudités."
     },
     {
       title: "Bouillie d’igname au poisson frit",
       icon: "🍲",
-      imageParts: ["igname-01.b64", "igname-02a.b64", "igname-02b.b64", "igname-03a.b64", "igname-03b.b64", "igname-04.b64"],
+      image: "assets/menu-ultra/igname-poisson.webp",
       alt: "Préparation d’igname servie avec poisson frit et sauce",
       description: "Bouillie d’igname accompagnée de poisson frit."
     }
