@@ -587,3 +587,35 @@ body{background:var(--ivory);font-family:var(--serif)}
 /* Desktop uses the top navigation; the floating hamburger is for phones. */
 .hero-crisp .hero-menu-toggle{display:none}
 @media(max-width:600px){.hero-crisp .hero-menu-toggle{display:flex}}
+
+
+/* Three confirmed wedding dishes, each shown as a photo card. */
+.menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.menu-card--dish{
+  display:flex;flex-direction:column;gap:0;min-width:0;min-height:0;
+  padding:.5rem;overflow:hidden;border-radius:1rem;
+  border:1px solid #c99a3b99;
+  background:linear-gradient(145deg,#fffefa,#fff1f8);
+  box-shadow:0 10px 26px #4b075f12;
+}
+.menu-card--dish:after{display:none}
+.menu-dish-photo{
+  display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center;
+  border-radius:.7rem;background:#f7eee8;border:1px solid #c99a3b55;
+}
+.menu-dish-body{position:relative;padding:.9rem .6rem .65rem}
+.menu-dish-number{position:absolute;right:.6rem;top:.6rem;color:#d82e8840;font:600 1rem var(--sans);letter-spacing:.05em}
+.menu-card--dish h3{max-width:90%;font:600 1.28rem/1.18 var(--serif);color:var(--plum);margin:0 0 .45rem}
+.menu-dish-description{margin:0;color:var(--muted);font:400 .88rem/1.5 var(--sans)}
+.menu-note{color:var(--plum)}
+@media(min-width:900px){.menu-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}}
+@media(min-width:601px) and (max-width:899px){.menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+  .menu-grid{grid-template-columns:1fr;gap:1rem}
+  .menu-card--dish{padding:.42rem;border-radius:1rem}
+  .menu-dish-photo{aspect-ratio:16/10;max-height:280px}
+  .menu-dish-body{padding:.8rem .7rem .65rem}
+  .menu-card--dish h3{font-size:1.32rem;max-width:100%;padding-right:1.6rem}
+  .menu-dish-number{top:.8rem;right:.7rem}
+  .menu-dish-description{font-size:.84rem}
+}
