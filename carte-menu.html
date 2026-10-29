@@ -1,31 +1,46 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Carte-menu — Sosthene & Ruth</title>
-    <style>
-      :root{--plum:#4b075f;--pink:#d63384;--light:#f4b8d0;--gold:#c99a3b;--ivory:#fff9f0;--ink:#2f1835;--script:"Segoe Script","Brush Script MT",cursive;--serif:Georgia,"Times New Roman",serif}
-      *{box-sizing:border-box}body{margin:0;background:#eee5dc;color:var(--ink);font-family:var(--serif);display:grid;place-items:center;min-height:100vh;padding:20px}.card{position:relative;width:148mm;min-height:210mm;background:radial-gradient(ellipse at top,#fffdf8 0%,var(--ivory) 65%);border:1.1mm solid var(--gold);outline:1px solid #c99a3b;background-clip:padding-box;padding:12mm 11mm 10mm;text-align:center;overflow:hidden;box-shadow:0 16px 60px #32113b22}.card:before,.card:after{content:"";position:absolute;width:45mm;height:45mm;border:1px solid #d6338466;border-radius:50%;pointer-events:none}.card:before{top:-28mm;left:-22mm;box-shadow:8mm 4mm 0 -4mm #fff9f0,9mm 4mm 0 -3.8mm #c99a3b,15mm 8mm 0 -7mm #fff9f0,15mm 8mm 0 -6.8mm #d63384}.card:after{bottom:-30mm;right:-22mm;box-shadow:-8mm -5mm 0 -4mm #fff9f0,-8mm -5mm 0 -3.8mm #c99a3b,-15mm -9mm 0 -7mm #fff9f0,-15mm -9mm 0 -6.8mm #4b075f}.inner-border{position:absolute;inset:3mm;border:.3mm solid #c99a3b80;pointer-events:none}.flower{position:absolute;color:var(--pink);font-size:25mm;line-height:1;opacity:.48}.flower.left{left:-8mm;top:11mm;transform:rotate(-23deg)}.flower.right{right:-9mm;bottom:10mm;transform:rotate(150deg);color:var(--plum)}.flower small{display:block;color:var(--gold);font-size:12mm;margin-left:8mm}.hearts{color:var(--pink);font-size:12mm;line-height:1;margin:1mm}.eyebrow{font:700 3mm Arial,sans-serif;text-transform:uppercase;letter-spacing:1.1mm;color:var(--gold);margin:2mm}.script{font:italic 17mm var(--script);line-height:1.1;color:var(--plum);margin:2mm 0}.subtitle{font-size:5mm;letter-spacing:.5mm;margin:0;color:var(--plum)}.names{font:italic 13mm var(--script);color:var(--plum);margin:4mm 0 2mm;white-space:nowrap}.names em{color:var(--pink);font-style:normal;font-size:8mm}.rule{width:75mm;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--pink),var(--gold),transparent);margin:4mm auto}.table{display:none;margin:3mm auto;padding:3mm 9mm;border:1mm double var(--gold);border-radius:20mm;background:var(--plum);color:white;font-weight:bold;font-size:6mm;width:max-content}.table.show{display:block}.scan-copy{font-size:5mm;line-height:1.5;max-width:110mm;margin:4mm auto 2mm}.qr-wrap{width:46mm;height:46mm;background:white;border:1px solid #d8c4a1;border-radius:2mm;margin:4mm auto 2mm;display:grid;place-items:center;padding:2mm;position:relative}.qr-wrap img{width:100%;height:100%;object-fit:contain}.qr-fallback{position:absolute;inset:3mm;border:1px dashed #9b779f;display:grid;place-content:center;color:#806f7c;font:3mm Arial,sans-serif;padding:2mm}.qr-fallback b{font-size:9mm;color:var(--plum)}.hint{font:italic 3mm Arial,sans-serif;color:#806f7c;margin:1mm}.footer{font:italic 6mm var(--script);color:var(--plum);margin-top:2mm}.footer span{color:var(--pink)}
-      @media print{@page{size:A5 portrait;margin:0}body{padding:0;background:white;min-height:0}.card{box-shadow:none;margin:0;width:148mm;height:210mm;min-height:210mm;break-after:avoid}.qr-fallback{background:#fff}}
-      @media screen and (max-width:600px){.card{width:min(100%,148mm);min-height:auto;aspect-ratio:148/210;padding:8vw 7vw}.script{font-size:15vw}.names{font-size:11vw}.qr-wrap{width:38vw;height:38vw}}
-    </style>
-  </head>
-  <body data-table-number="">
-    <main class="card">
-      <div class="inner-border" aria-hidden="true"></div><div class="flower left" aria-hidden="true">✿<small>❧</small>✿</div><div class="flower right" aria-hidden="true">✿<small>❧</small>✿</div>
-      <div class="hearts" aria-hidden="true">♡</div><p class="eyebrow">Vous invitent à partager leur bonheur</p>
-      <h1 class="script">Bienvenue</h1><p class="subtitle">à notre mariage</p>
-      <p class="names">Sosthene <em>&amp;</em> Ruth</p><div class="rule" aria-hidden="true"></div>
-      <p id="table" class="table"></p>
-      <p class="scan-copy">Scannez pour découvrir le menu, les photos de la dot et un message des mariés.</p>
-      <div class="qr-wrap"><img id="qr" src="assets/qr-menu.svg" alt="QR code menant au site du mariage" /><div id="qr-fallback" class="qr-fallback"><b>♡</b><span>QR définitif<br/>après déploiement</span></div></div>
-      <p class="hint">Le QR apparaîtra ici après la publication du site.</p><div class="rule" aria-hidden="true"></div>
-      <p class="footer">Avec amour, <span>♥</span> Sosthene &amp; Ruth</p>
-    </main>
-    <script>
-      const table=document.querySelector('#table'); const number=document.body.dataset.tableNumber; if(number){table.textContent=`TABLE ${number} · AMOUR`;table.classList.add('show')}
-      const qr=document.querySelector('#qr'), fallback=document.querySelector('#qr-fallback'); qr.addEventListener('load',()=>fallback.hidden=true); qr.addEventListener('error',()=>qr.hidden=true); if(qr.complete&&qr.naturalWidth)fallback.hidden=true;
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4b075f">
+  <title>Carte-menu — Sosthene & Ruth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--plum:#4b075f;--deep:#31053f;--pink:#d82e8a;--light:#f4b8d0;--gold:#c99a3b;--gold-light:#f2d88c;--ivory:#fff9f0;--ink:#2f1835;--script:"Great Vibes","Segoe Script","Brush Script MT",cursive;--serif:"Cormorant Garamond",Georgia,serif;--sans:Poppins,Arial,sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:#eee5dc;color:var(--ink);font-family:var(--serif);display:grid;place-items:center;min-height:100vh;padding:20px}
+    .card{position:relative;width:148mm;min-height:210mm;background:radial-gradient(ellipse at 12% 7%,#f4b8d04d,transparent 27%),radial-gradient(ellipse at 90% 92%,#d82e8a24,transparent 30%),linear-gradient(145deg,#fffdf8,var(--ivory) 55%,#fff4fa);border:1.1mm solid var(--gold);padding:10mm 10mm 9mm;text-align:center;overflow:hidden;box-shadow:0 16px 60px #32113b22;isolation:isolate}
+    .card:before{content:"";position:absolute;inset:3mm;border:1px solid #c99a3b8a;outline:1px solid #d82e8a38;outline-offset:3px;pointer-events:none;z-index:-1}
+    .flower{position:absolute;z-index:-1;color:var(--pink);font-size:27mm;line-height:1;opacity:.9;text-shadow:1px 2px 0 white}.flower.left{left:-8mm;top:9mm;transform:rotate(-23deg)}.flower.right{right:-10mm;bottom:4mm;transform:rotate(155deg);color:var(--plum)}.flower small{display:block;color:var(--gold);font-size:13mm;margin-left:8mm}
+    .crown{font-size:13mm;line-height:1;color:var(--magenta);color:var(--pink);margin:0}.crown span{color:var(--plum);margin-left:-4mm}.eyebrow{font:600 2.7mm var(--sans);text-transform:uppercase;letter-spacing:1mm;color:var(--gold);margin:1.8mm 0}
+    .script{font:4rem var(--script);line-height:.92;color:var(--plum);margin:2mm 0}.subtitle{font:600 5mm var(--serif);margin:0;color:var(--plum);letter-spacing:.04em}
+    .names{font:3.1rem var(--script);color:var(--plum);margin:3mm 0 1mm;white-space:nowrap;line-height:1.15}.names em{color:var(--pink);font-style:normal;font-size:.8em}
+    .rule{width:75mm;height:1.4px;background:linear-gradient(90deg,transparent,var(--gold),var(--pink),var(--gold),transparent);margin:3mm auto}
+    .verse{max-width:100mm;margin:2.6mm auto 2mm;padding:2mm 4mm;background:#fff9f0d9;border:1px solid #c99a3b8a;border-radius:2mm;color:var(--plum);font-size:3.6mm;line-height:1.25;font-style:italic}.verse strong{display:block;font:600 2.3mm var(--sans);letter-spacing:.4mm;text-transform:uppercase;color:var(--pink);margin-top:.8mm}.table{display:none;margin:3mm auto 2mm;width:max-content;max-width:100%;padding:2.8mm 9mm;background:var(--plum);border:1mm double var(--gold);border-radius:30mm;color:white;font:700 5mm var(--serif);letter-spacing:.5mm;box-shadow:0 2mm 0 #4b075f17}.table.show{display:block}
+    .scan-copy{font-size:4.2mm;line-height:1.35;max-width:110mm;margin:3mm auto 1.5mm}.scan-copy strong{color:var(--plum)}
+    .qr-wrap{width:43mm;height:43mm;background:#fff;border:1.2mm solid var(--gold);outline:1px solid #d82e8a75;outline-offset:1mm;border-radius:2mm;margin:3.5mm auto 2mm;display:grid;place-items:center;padding:1.5mm;position:relative}.qr-wrap img{width:100%;height:100%;object-fit:contain}.qr-fallback{position:absolute;inset:3mm;border:1px dashed #9b779f;display:grid;place-content:center;color:#806f7c;font:2.7mm var(--sans);padding:2mm;background:white}.qr-fallback b{font-size:8mm;color:var(--plum)}.hint{font:2.4mm var(--sans);color:#806f7c;margin:1mm}.footer{font:1.5rem var(--script);color:var(--plum);margin:2mm auto 0}.footer span{color:var(--pink)}.faith-mark{position:absolute;top:10mm;right:12mm;border:1px solid #c99a3b80;color:var(--gold);border-radius:50%;width:9mm;height:9mm;display:grid;place-items:center;font-size:5mm;background:#fff9f0}
+    @media print{@page{size:A5 portrait;margin:0}body{padding:0;background:white;min-height:0}.card{box-shadow:none;margin:0;width:148mm;height:210mm;min-height:210mm;break-after:avoid}.qr-fallback{background:#fff}}
+    @media screen and (max-width:600px){.card{width:min(100%,148mm);min-height:auto;aspect-ratio:148/210;padding:7vw 6vw}.script{font-size:15vw}.names{font-size:10vw}.qr-wrap{width:36vw;height:36vw}.verse{font-size:3.5mm}}
+  </style>
+</head>
+<body data-table-number="1">
+  <main class="card">
+    <div class="flower left" aria-hidden="true">✿<small>❧</small>✿</div><div class="flower right" aria-hidden="true">✿<small>❧</small>✿</div>
+    <span class="faith-mark" aria-hidden="true">✝</span>
+    <div class="crown" aria-hidden="true">♡<span>♡</span></div>
+    <p class="eyebrow">Une alliance bénie de Dieu</p>
+    <h1 class="script">Bienvenue</h1><p class="subtitle">à notre mariage</p>
+    <p class="names">Sosthene <em>&amp;</em> Ruth</p><div class="rule" aria-hidden="true"></div>
+    <div class="verse">« Que tout ce que vous faites se fasse avec amour. »<strong>1 Corinthiens 16:14</strong></div>
+    <p id="table" class="table"></p>
+    <p class="scan-copy"><strong>Scannez le QR code</strong><br>pour découvrir notre menu, les souvenirs de la dot et notre message de remerciement.</p>
+    <div class="qr-wrap"><img id="qr" src="assets/qr-menu.svg" alt="QR code menant au site du mariage"><div id="qr-fallback" class="qr-fallback"><b>♡</b><span>QR définitif<br>après publication</span></div></div>
+    <p class="hint">Le QR définitif sera ajouté après la mise en ligne du site.</p>
+    <div class="rule" aria-hidden="true"></div><p class="footer">Avec amour, <span>♥</span> Sosthene &amp; Ruth</p>
+  </main>
+  <script>
+    const table=document.querySelector('#table');const number=document.body.dataset.tableNumber;if(number){table.textContent='TABLE '+number+' · AMOUR';table.classList.add('show')}
+    const qr=document.querySelector('#qr'),fallback=document.querySelector('#qr-fallback');qr.addEventListener('load',()=>fallback.hidden=true);qr.addEventListener('error',()=>qr.hidden=true);if(qr.complete&&qr.naturalWidth)fallback.hidden=true;
+  </script>
+</body>
 </html>
