@@ -583,3 +583,7 @@ body{background:var(--ivory);font-family:var(--serif)}
   .mobile-nav{display:grid!important;position:fixed;bottom:0;left:0;right:0;z-index:30;grid-template-columns:repeat(4,1fr);padding:.45rem .3rem calc(.45rem + env(safe-area-inset-bottom));background:#fffdf9f5;border-top:1px solid #c99a3b90;backdrop-filter:blur(16px);box-shadow:0 -6px 24px #4b075f0d}
   .site-footer{padding-bottom:5.5rem}
 }
+
+/* Desktop uses the top navigation; the floating hamburger is for phones. */
+.hero-crisp .hero-menu-toggle{display:none}
+@media(max-width:600px){.hero-crisp .hero-menu-toggle{display:flex}}
