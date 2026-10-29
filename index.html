@@ -26,28 +26,33 @@
   </header>
 
   <main>
-    <section id="accueil" class="hero-poster" aria-label="Accueil du mariage de Sosthene et Ruth">
-      <div class="poster-canvas">
-        <img id="homepage-poster" src="" alt="Page d’accueil du mariage de Sosthene et Ruth : cœurs entrelacés, roses roses et violettes, photo du couple, verset de 1 Corinthiens 16:14, bouton Découvrir notre menu et navigation mobile." fetchpriority="high">
-        <div class="poster-fallback" hidden>
-          <p class="script">Sosthene &amp; Ruth</p>
-          <p>Bienvenue à notre mariage</p>
-          <p>« Que tout ce que vous faites se fasse avec amour. »</p>
-          <a href="#menu">Découvrir notre menu</a>
-        </div>
-        <button class="poster-hotspot poster-hamburger-toggle hero-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-flyout"></button>
-        <nav id="mobile-flyout" class="mobile-flyout" aria-label="Menu du mariage" hidden>
-          <a href="#accueil">Accueil</a>
-          <a href="#menu">Notre menu</a>
-          <a href="#galerie">Souvenirs de la dot</a>
-          <a href="#message">Message des mariés</a>
-        </nav>
-        <a class="poster-hotspot poster-cta" href="#menu" aria-label="Découvrir notre menu"></a>
-        <a class="poster-hotspot poster-tab poster-tab-accueil" href="#accueil" aria-label="Accueil"></a>
-        <a class="poster-hotspot poster-tab poster-tab-menu" href="#menu" aria-label="Menu"></a>
-        <a class="poster-hotspot poster-tab poster-tab-galerie" href="#galerie" aria-label="Galerie"></a>
-        <a class="poster-hotspot poster-tab poster-tab-message" href="#message" aria-label="Message"></a>
+    <section id="accueil" class="hero-crisp" aria-labelledby="hero-title">
+      <span class="crisp-flower crisp-flower-left" aria-hidden="true">✿</span>
+      <span class="crisp-flower crisp-flower-right" aria-hidden="true">❀</span>
+      <button class="hero-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-flyout"><span></span><span></span><span></span></button>
+      <nav id="mobile-flyout" class="mobile-flyout" aria-label="Menu du mariage" hidden>
+        <a href="#accueil">Accueil</a>
+        <a href="#menu">Notre menu</a>
+        <a href="#galerie">Souvenirs de la dot</a>
+        <a href="#message">Message des mariés</a>
+      </nav>
+      <header class="crisp-brand">
+        <div class="crisp-emblem" aria-hidden="true"><span class="crisp-heart-pink">♡</span><span class="crisp-heart-purple">♡</span></div>
+        <h1 id="hero-title"><span class="crisp-names"><i>Sosthene</i> <b>&amp;</b> <i>Ruth</i></span></h1>
+        <p class="crisp-tagline">Une alliance bénie de Dieu</p>
+        <div class="crisp-divider" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+      </header>
+      <figure class="crisp-photo">
+        <img src="assets/photo_dot_02.webp" alt="Sosthene et Ruth en tenues traditionnelles lors de la cérémonie de la dot" fetchpriority="high">
+      </figure>
+      <div class="crisp-verse">
+        <span class="crisp-cross" aria-hidden="true">✝</span>
+        <div class="crisp-verse-line" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+        <p data-content="verseText"></p>
+        <strong data-content="verseReference"></strong>
       </div>
+      <a class="crisp-menu-button" href="#menu"><span aria-hidden="true">♧</span>Découvrir notre menu<span class="crisp-arrow" aria-hidden="true">›</span></a>
+      <div class="crisp-bottom-florals" aria-hidden="true">✿　❀　✿</div>
     </section>
 
     <section id="menu" class="menu-section" aria-labelledby="menu-title">
