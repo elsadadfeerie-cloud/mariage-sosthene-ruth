@@ -41,15 +41,16 @@ Puis ajoutez les fichiers de QR générés dans `assets/`. Scannez le code impri
 Les photos manquantes sont retirées de la galerie sans casser les autres sections. La boîte d'agrandissement des photos prend en charge le clavier, et la page respecte la préférence système de réduction des animations.
 
 
-## Écran d'accueil demandé par les mariés
 
-L'accueil affiche désormais l'illustration validée par le client comme écran visuel principal. Le fichier source compressé est stocké dans `assets/homepage-screen.webp.b64`, puis chargé par `app.js` en image WebP. Les zones transparentes positionnées sur le visuel rendent le bouton « Découvrir notre menu », le bouton hamburger et les quatre onglets du bas cliquables. Les rubriques réelles Menu, Galerie et Message restent présentes sous cet écran.
+## Qualité de l'accueil mobile
 
-Le visuel mobile est volontairement conçu pour reproduire exactement la capture de référence. Les photos intégrées dans cette image sont celles du graphisme approuvé ; les photos originales envoyées par le client restent disponibles dans la galerie détaillée sous l'écran d'accueil.
+L'accueil est maintenant reconstruit en HTML/CSS à partir de la maquette approuvée, au lieu d'afficher la capture entière comme un seul fichier image. Les textes, le verset, le bouton du menu et les icônes restent ainsi nets à l'écran et lors du zoom. La photo du couple est servie séparément depuis `assets/photo_dot_02.webp`; la galerie continue d'utiliser les photos originales fournies par le client.
 
-Après déploiement, contrôler sur téléphone :
-- l'image d'accueil se charge sans afficher le bloc de secours ;
-- le bouton « Découvrir notre menu » ouvre la section Menu ;
-- l'icône hamburger affiche les liens de navigation ;
-- les onglets Galerie et Message ouvrent les bonnes sections ;
-- la barre de navigation mobile réapparaît lorsque l'invité quitte l'écran d'accueil.
+Sur téléphone, contrôler :
+- les cœurs et les prénoms Sosthene & Ruth ;
+- la photo réelle de la dot, sans déformation ;
+- le verset « Que tout ce que vous faites se fasse avec amour. » (1 Corinthiens 16:14) ;
+- le bouton « Découvrir notre menu » ;
+- l'icône hamburger et les onglets Accueil, Menu, Galerie et Message.
+
+Les anciens fichiers temporaires encodant toute la capture comme une image ont été supprimés : ils entraînaient une perte de qualité et ne sont plus nécessaires.
