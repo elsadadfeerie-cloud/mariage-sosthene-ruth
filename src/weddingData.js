@@ -1,4 +1,4 @@
-// Contenu du site. Modifier seulement après validation par les mariés.
+// Contenu validé du menu du mariage — Sosthene & Ruth.
 export const weddingData = {
   couple: { first: "Sosthene", second: "Ruth" },
   date: "",
@@ -9,11 +9,27 @@ export const weddingData = {
   galleryIntro: "Quelques moments forts de la cérémonie de la dot, symbole de l’union de nos deux familles. Nous rendons grâce à Dieu pour cette belle histoire et pour tous ceux qui la partagent avec nous.",
   thanks: "Du fond du cœur, merci d’avoir pris part à notre bonheur. Votre présence, vos sourires, vos prières, votre affection et vos bénédictions ont rendu cette célébration encore plus précieuse. Que le Seigneur vous comble de sa paix et de sa grâce, aujourd’hui et toujours. Avec toute notre gratitude, Sosthene & Ruth.",
   menu: [
-    { title: "Entrées", icon: "❧", items: [] },
-    { title: "Plat principal", icon: "♨", items: [] },
-    { title: "Accompagnements", icon: "❋", items: [] },
-    { title: "Desserts", icon: "❀", items: [] },
-    { title: "Boissons", icon: "♧", items: [] },
+    {
+      title: "Tchêp au poulet frit",
+      icon: "🍗",
+      image: "assets/menu-tchep-poulet.webp",
+      alt: "Assiette de tchêp accompagnée de poulet frit et de légumes",
+      description: "Du riz savoureux accompagné de poulet frit."
+    },
+    {
+      title: "Attiéké au poisson frit",
+      icon: "🐟",
+      image: "assets/menu-attieke-poisson.webp",
+      alt: "Poisson frit servi avec attiéké et crudités",
+      description: "Attiéké accompagné de poisson frit et de crudités."
+    },
+    {
+      title: "Bouillie d’igname au poisson frit",
+      icon: "🍲",
+      image: "assets/menu-igname-poisson.webp",
+      alt: "Préparation d’igname servie avec poisson frit et sauce",
+      description: "Bouillie d’igname accompagnée de poisson frit."
+    }
   ],
   gallery: [
     { src: "assets/photo_dot_01.webp", alt: "Sosthene et Ruth lors de la cérémonie de la dot, en tenue traditionnelle orange et rouge", caption: "Unis dans la joie" },
