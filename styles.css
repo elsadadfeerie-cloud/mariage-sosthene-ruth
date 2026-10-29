@@ -397,3 +397,28 @@ body{background:var(--ivory);font-family:var(--serif)}
   .button{font-size:.72rem}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+
+/* Screenshot-specific detail: compact purple hamburger in the top-right corner. */
+.hero-menu-toggle{display:none}
+.mobile-flyout[hidden]{display:none!important}
+.mobile-flyout{display:none}
+@media(max-width:600px){
+  .hero-menu-toggle{
+    display:flex;position:absolute;right:1.08rem;top:1rem;z-index:15;width:2.8rem;height:2.8rem;
+    border:1px solid var(--gold);border-radius:.55rem;background:linear-gradient(145deg,#7b1480,var(--plum));
+    box-shadow:0 5px 13px #4b075f2e;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer
+  }
+  .hero-menu-toggle span{display:block;width:1.15rem;height:2px;background:#fff4fa;border-radius:3px}
+  .hero-menu-toggle:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+  .hero-menu-toggle[aria-expanded=true]{background:var(--magenta)}
+  .mobile-flyout:not([hidden]){
+    display:grid;position:absolute;z-index:14;right:1.05rem;top:4.15rem;width:min(77%,275px);
+    padding:.55rem;background:#fffdf9;border:1px solid var(--gold);border-radius:.75rem;
+    box-shadow:0 14px 32px #31053f35
+  }
+  .mobile-flyout a{display:block;text-decoration:none;color:var(--plum);font:600 .78rem var(--sans);padding:.72rem .8rem;border-radius:.45rem;border-bottom:1px solid #c99a3b24}
+  .mobile-flyout a:last-child{border-bottom:0}
+  .mobile-flyout a:hover,.mobile-flyout a:focus{background:#ffe6f0;color:var(--magenta);outline:none}
+  .hero-brand{padding-top:.8rem}
+}
