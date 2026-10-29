@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#4b075f" />
+    <meta name="description" content="Bienvenue au mariage de Sosthene & Ruth. Découvrez le menu, les souvenirs de la dot et un message des mariés." />
+    <title>Sosthene & Ruth — Notre mariage</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#accueil">Aller au contenu</a>
+    <header class="site-header">
+      <a class="wordmark" href="#accueil" aria-label="Sosthene et Ruth, accueil">S <span>♥</span> R</a>
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <a href="#accueil" data-nav="accueil">Accueil</a>
+        <a href="#menu" data-nav="menu">Menu</a>
+        <a href="#galerie" data-nav="galerie">Galerie</a>
+        <a href="#message" data-nav="message">Message</a>
+      </nav>
+      <span class="header-ornament" aria-hidden="true">✦</span>
+    </header>
+
+    <main>
+      <section id="accueil" class="hero section-shell" aria-labelledby="hero-title">
+        <div class="floral-corner floral-corner--left" aria-hidden="true">✿<span>❧</span>✿</div>
+        <div class="hero-copy">
+          <p class="eyebrow">Une journée, deux familles, un grand amour</p>
+          <h1 id="hero-title"><span class="script">Bienvenue</span><small>au mariage de</small><span class="couple"><i>Sosthene</i> <b>&amp;</b> <i>Ruth</i></span></h1>
+          <div class="heart-rule" aria-hidden="true"><span></span>♥<span></span></div>
+          <p class="hero-intro" data-content="welcome"></p>
+          <a class="button button--primary" href="#menu">Découvrir <span aria-hidden="true">↘</span></a>
+        </div>
+        <figure class="hero-photo-frame">
+          <img src="assets/photo_dot_02.webp" alt="Sosthene et Ruth réunis pendant la cérémonie de la dot" fetchpriority="high" />
+          <figcaption>Avec amour, Sosthene &amp; Ruth</figcaption>
+        </figure>
+        <div class="floral-corner floral-corner--right" aria-hidden="true">✿<span>❧</span>✿</div>
+        <span class="hero-seal" aria-hidden="true">S <span>♥</span> R</span>
+      </section>
+
+      <section id="menu" class="menu-section section-shell" aria-labelledby="menu-title">
+        <div class="section-heading">
+          <span class="line-icon" aria-hidden="true">♧</span>
+          <p class="eyebrow">Le plaisir de se retrouver</p>
+          <h2 id="menu-title" class="script">Notre Menu</h2>
+          <div class="heart-rule" aria-hidden="true"><span></span>♥<span></span></div>
+          <p class="section-intro">Les plats de la réception seront ajoutés dès confirmation par les mariés.</p>
+        </div>
+        <div id="menu-list" class="menu-grid" aria-live="polite"></div>
+        <p class="menu-note"><span aria-hidden="true">✧</span> Menu en préparation — les rubriques sont prêtes à être complétées.</p>
+      </section>
+
+      <section id="galerie" class="gallery-section section-shell" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <span class="line-icon" aria-hidden="true">♡</span>
+          <p class="eyebrow">Les souvenirs précieux</p>
+          <h2 id="gallery-title" class="script">Souvenirs de la dot</h2>
+          <div class="heart-rule" aria-hidden="true"><span></span>♥<span></span></div>
+          <p class="section-intro" data-content="galleryIntro"></p>
+        </div>
+        <div id="gallery-grid" class="gallery-grid"></div>
+      </section>
+
+      <section id="message" class="thanks-section" aria-labelledby="thanks-title">
+        <div class="thanks-inner">
+          <div class="thanks-flowers thanks-flowers--left" aria-hidden="true">✿<span>❧</span>✿</div>
+          <div class="thanks-copy">
+            <span class="line-icon" aria-hidden="true">♡</span>
+            <p class="eyebrow">Avec toute notre affection</p>
+            <h2 id="thanks-title" class="script">Un grand merci</h2>
+            <p data-content="thanks"></p>
+            <div class="heart-rule" aria-hidden="true"><span></span>♥<span></span></div>
+            <p class="signature"><i>Sosthene</i> <b>&amp;</b> <i>Ruth</i></p>
+          </div>
+          <div class="thanks-flowers thanks-flowers--right" aria-hidden="true">✿<span>❧</span>✿</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>Fait avec amour</span><span aria-hidden="true">♥</span><span>Sosthene &amp; Ruth</span></footer>
+
+    <nav class="mobile-nav" aria-label="Navigation mobile">
+      <a href="#accueil" data-nav="accueil"><span aria-hidden="true">⌂</span>Accueil</a>
+      <a href="#menu" data-nav="menu"><span aria-hidden="true">♜</span>Menu</a>
+      <a href="#galerie" data-nav="galerie"><span aria-hidden="true">▧</span>Galerie</a>
+      <a href="#message" data-nav="message"><span aria-hidden="true">♡</span>Message</a>
+    </nav>
+
+    <dialog id="lightbox" class="lightbox" aria-label="Photo agrandie">
+      <button class="lightbox-close" type="button" aria-label="Fermer la photo">×</button>
+      <img src="" alt="" />
+      <p></p>
+    </dialog>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

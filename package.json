@@ -1,0 +1,12 @@
+{
+  "name": "mariage-sosthene-ruth",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "qr": "node scripts/generate-qr.mjs"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}
