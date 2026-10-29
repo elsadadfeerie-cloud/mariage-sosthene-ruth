@@ -422,3 +422,33 @@ body{background:var(--ivory);font-family:var(--serif)}
   .mobile-flyout a:hover,.mobile-flyout a:focus{background:#ffe6f0;color:var(--magenta);outline:none}
   .hero-brand{padding-top:.8rem}
 }
+
+
+/* Final mobile viewport adjustment: show the full verse and menu button sooner. */
+@media(max-width:600px){
+  .hero-photo-frame img{
+    aspect-ratio:1/1;
+    height:auto;
+    max-height:none;
+    object-fit:cover;
+    object-position:center 27%;
+  }
+  .hero-photo-frame{
+    width:min(100%,430px);
+  }
+  .verse-card{
+    margin-top:-2.25rem;
+    padding-top:.9rem;
+    padding-bottom:.72rem;
+  }
+  .hero-actions{
+    margin-top:.9rem;
+    padding-bottom:.25rem;
+  }
+  .hero{
+    padding-bottom:4.8rem;
+  }
+}
+@media(max-width:380px){
+  .hero-photo-frame img{aspect-ratio:1/1;object-position:center 25%}
+}
