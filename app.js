@@ -12,42 +12,58 @@ for (const [key, value] of Object.entries({
 }
 
 const menu = document.querySelector("#menu-list");
-menu.replaceChildren(...weddingData.menu.map((category) => {
-  const card = document.createElement("article");
-  card.className = "menu-card";
-  const icon = document.createElement("span");
-  icon.className = "menu-icon";
-  icon.setAttribute("aria-hidden", "true");
-  icon.textContent = category.icon;
-  const body = document.createElement("div");
-  body.className = "menu-card-body";
-  const title = document.createElement("h3");
-  title.textContent = category.title;
-  const list = document.createElement("ul");
-  if (!category.items.length) {
-    const item = document.createElement("li");
-    item.className = "menu-pending";
-    item.textContent = "À compléter après confirmation du menu";
-    list.append(item);
-  } else {
-    for (const dish of category.items) {
-      const item = document.createElement("li");
-      if (typeof dish === "string") item.textContent = dish;
-      else {
-        item.textContent = dish.name;
-        if (dish.description) {
-          const detail = document.createElement("small");
-          detail.textContent = dish.description;
-          item.append(detail);
-        }
-      }
-      list.append(item);
+
+async function loadMenuImage(imagePath) {
+  const encodedPath = imagePath + ".b64";
+  const response = await fetch(new URL(encodedPath, import.meta.url));
+  if (!response.ok) throw new Error(`Photo de menu introuvable: ${encodedPath}`);
+  const encoded = (await response.text()).trim();
+  const binary = atob(encoded);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+  return URL.createObjectURL(new Blob([bytes], { type: "image/webp" }));
+}
+
+async function renderMenu() {
+  const cards = await Promise.all(weddingData.menu.map(async (dish, index) => {
+    const card = document.createElement("article");
+    card.className = "menu-card menu-card--dish";
+
+    const image = document.createElement("img");
+    image.className = "menu-dish-photo";
+    image.alt = dish.alt || dish.title;
+    image.loading = index === 0 ? "eager" : "lazy";
+    image.decoding = "async";
+    try {
+      image.src = await loadMenuImage(dish.image);
+    } catch (error) {
+      image.hidden = true;
+      console.warn("Impossible de charger la photo du plat.", error);
     }
-  }
-  body.append(title, list);
-  card.append(icon, body);
-  return card;
-}));
+
+    const body = document.createElement("div");
+    body.className = "menu-dish-body";
+    const title = document.createElement("h3");
+    title.textContent = dish.title;
+    const description = document.createElement("p");
+    description.className = "menu-dish-description";
+    description.textContent = dish.description || "";
+
+    const number = document.createElement("span");
+    number.className = "menu-dish-number";
+    number.textContent = String(index + 1).padStart(2, "0");
+
+    body.append(number, title);
+    if (description.textContent) body.append(description);
+    card.append(image, body);
+    return card;
+  }));
+  menu.replaceChildren(...cards);
+}
+renderMenu().catch((error) => {
+  console.error("Impossible d’afficher le menu.", error);
+  menu.textContent = "Le menu est momentanément indisponible. Veuillez réessayer.";
+});
 
 const gallery = document.querySelector("#gallery-grid");
 const lightbox = document.querySelector("#lightbox");
