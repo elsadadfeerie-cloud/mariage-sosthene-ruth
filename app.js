@@ -94,3 +94,23 @@ if ("IntersectionObserver" in window) {
   }, { rootMargin: "-28% 0px -55% 0px", threshold: [0, 0.25, 0.5] });
   sections.forEach((section) => observer.observe(section));
 }
+
+
+// Hamburger de la page d'accueil mobile : accès rapide aux rubriques.
+const mobileMenuToggle = document.querySelector(".hero-menu-toggle");
+const mobileFlyout = document.querySelector("#mobile-flyout");
+if (mobileMenuToggle && mobileFlyout) {
+  const closeMobileMenu = () => {
+    mobileFlyout.hidden = true;
+    mobileMenuToggle.setAttribute("aria-expanded", "false");
+    mobileMenuToggle.setAttribute("aria-label", "Ouvrir le menu");
+  };
+  mobileMenuToggle.addEventListener("click", () => {
+    const open = mobileMenuToggle.getAttribute("aria-expanded") !== "true";
+    mobileMenuToggle.setAttribute("aria-expanded", String(open));
+    mobileMenuToggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    mobileFlyout.hidden = !open;
+  });
+  mobileFlyout.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMobileMenu));
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMobileMenu(); });
+}
