@@ -30,14 +30,20 @@ async function renderMenu() {
     card.className = "menu-card menu-card--dish";
 
     const image = document.createElement("img");
-    image.className = "menu-dish-photo";
+    image.className = `menu-dish-photo menu-dish-photo--${index + 1}`;
     image.alt = dish.alt || dish.title;
     image.loading = index === 0 ? "eager" : "lazy";
     image.decoding = "async";
+    image.onerror = () => {
+      image.hidden = true;
+      card.classList.add("menu-card--photo-unavailable");
+      console.warn("La photo du plat n’a pas pu être décodée.", dish.title);
+    };
     try {
       image.src = await loadMenuImage(dish.image);
     } catch (error) {
       image.hidden = true;
+      card.classList.add("menu-card--photo-unavailable");
       console.warn("Impossible de charger la photo du plat.", error);
     }
 
