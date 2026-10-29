@@ -452,3 +452,52 @@ body{background:var(--ivory);font-family:var(--serif)}
 @media(max-width:380px){
   .hero-photo-frame img{aspect-ratio:1/1;object-position:center 25%}
 }
+
+
+/* Exact-artwork home screen: the uploaded image is the visual surface;
+   accessible transparent hotspots keep the QR landing screen interactive. */
+.hero-poster{
+  position:relative;width:100%;margin:0 auto;padding:0;background:var(--ivory);
+  scroll-margin-top:0;isolation:isolate;
+}
+.poster-canvas{
+  width:min(100%,480px);aspect-ratio:9/16;position:relative;margin:0 auto;overflow:hidden;
+  background:linear-gradient(145deg,#fff9f0,#f8e5ef);
+}
+#homepage-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.poster-fallback[hidden]{display:none!important}
+.poster-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;color:var(--plum);background:linear-gradient(145deg,#fff9f0,#f4b8d0)}
+.poster-fallback .script{font-size:3.2rem;color:var(--magenta)}
+.poster-fallback a{display:inline-block;margin-top:1rem;padding:.8rem 1.2rem;border-radius:99px;color:white;background:var(--magenta);text-decoration:none}
+.poster-hotspot{position:absolute;z-index:5;display:block;padding:0;margin:0;border:0;border-radius:0;background:transparent;cursor:pointer;color:transparent;text-decoration:none}
+.poster-hotspot:focus-visible{outline:3px solid #d82e8a;outline-offset:-4px;background:#d82e8a18}
+.poster-hamburger-toggle{
+  display:block;left:84.5%;top:1.4%;width:14%;height:6.2%;
+  border-radius:12%;background:transparent!important;box-shadow:none!important;border:0!important;
+}
+.poster-cta{left:12%;top:82.25%;width:77%;height:7.2%;border-radius:999px}
+.poster-tab{top:90.5%;height:9.5%;width:25%;border-radius:0}
+.poster-tab-accueil{left:0}
+.poster-tab-menu{left:25%}
+.poster-tab-galerie{left:50%}
+.poster-tab-message{left:75%}
+.mobile-flyout[hidden]{display:none!important}
+.mobile-flyout:not([hidden]){
+  display:grid;position:absolute;z-index:10;top:8%;right:4%;width:min(76%,260px);
+  padding:.55rem;background:#fffdf9;border:1px solid var(--gold);border-radius:.75rem;
+  box-shadow:0 14px 32px #31053f35;
+}
+.mobile-flyout a{display:block;text-decoration:none;color:var(--plum);font:600 .78rem var(--sans);padding:.72rem .8rem;border-radius:.45rem;border-bottom:1px solid #c99a3b24}
+.mobile-flyout a:last-child{border-bottom:0}
+.mobile-flyout a:hover,.mobile-flyout a:focus{background:#ffe6f0;color:var(--magenta);outline:none}
+@media(max-width:600px){
+  .site-header{display:none}
+  .poster-canvas{width:100%;max-width:480px}
+  .mobile-nav{display:none}
+  body.past-home .mobile-nav{display:grid;position:fixed;bottom:0;left:0;right:0;z-index:30;grid-template-columns:repeat(4,1fr);padding:.45rem .3rem calc(.45rem + env(safe-area-inset-bottom));background:#fffdf9f4;border-top:1px solid #c99a3b90;backdrop-filter:blur(16px);box-shadow:0 -6px 24px #4b075f0d}
+}
+@media(min-width:601px){
+  .poster-canvas{max-width:430px}
+  .poster-cta,.poster-tab,.poster-hamburger-toggle{cursor:pointer}
+  .hero-poster{padding:1rem 0 0}
+}
