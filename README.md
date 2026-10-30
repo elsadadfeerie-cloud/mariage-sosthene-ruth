@@ -2,10 +2,10 @@
 
 Mini-site statique, adapté aux téléphones, avec accueil romantique et festif, menu, galerie des photos réelles de la dot et message de remerciement. La direction artistique suit le panneau transmis : **violet profond, rose, or et ivoire**, avec motifs floraux et détails chrétiens.
 
-Le verset affiché sur l’accueil et la carte est : « Que tout ce que vous faites se fasse avec amour. » — **1 Corinthiens 16:14**.
+Les deux seuls versets bibliques du site sont affichés sous « Notre Menu » : Cantique des Cantiques 8:7 et Éphésiens 5:31.
 
 ## Pages
-- `index.html` : site des invités — accueil, verset, menu, galerie et remerciements.
+- `index.html` : site des invités — accueil, menu avec les deux versets, galerie et remerciements.
 - `carte-menu.html` : carte A5 imprimable, avec TABLE 1 · AMOUR et emplacement du QR code.
 - `styles.css` : styles responsive du site.
 - `app.js` et `src/weddingData.js` : interactions et contenu facilement modifiable.
@@ -22,14 +22,14 @@ Le dépôt est configuré avec un workflow GitHub Actions dans `.github/workflow
 3. Vérifiez l'onglet **Actions** et attendez que le workflow **Deploy mariage Sosthene Ruth to GitHub Pages** réussisse.
 4. L'adresse attendue du site est `https://armelblai.github.io/mariage-sosthene-ruth/`. Ne l'utilisez pour l'impression qu'après avoir vérifié qu'elle s'ouvre réellement sur un téléphone.
 
-Documentation : [configurer la source de publication GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+Documentation : [configurer la source de publication GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-actions/configuring-a-publishing-source-for-your-github-pages-site).
 
 ## Générer le QR code définitif
 Le QR doit contenir l'URL HTTPS publique réelle — jamais une adresse locale. Après publication et vérification, exécutez localement :
 ```bash
 npm install
 npm run qr -- https://armelblai.github.io/mariage-sosthene-ruth/
-``
+```
 Puis ajoutez les fichiers de QR générés dans `assets/`. Scannez le code imprimé avec au moins deux téléphones avant toute impression en série. La carte affiche volontairement un emplacement de remplacement tant que le QR final n'existe pas.
 
 ## À confirmer avant l'impression
@@ -44,12 +44,12 @@ Les photos manquantes sont retirées de la galerie sans casser les autres sectio
 
 ## Qualité de l'accueil mobile
 
-L'accueil est maintenant reconstruit en HTML/CSS à partir de la maquette approuvée, au lieu d'afficher la capture entière comme un seul fichier image. Les textes, le verset, le bouton du menu et les icônes restent ainsi nets à l'écran et lors du zoom. La photo du couple est servie séparément depuis `assets/photo_dot_02.webp`; la galerie continue d'utiliser les photos originales fournies par le client.
+L'accueil est maintenant reconstruit en HTML/CSS à partir de la maquette approuvée, au lieu d'afficher la capture entière comme un seul fichier image. Les textes, les versets, le bouton du menu et les icônes restent ainsi nets à l'écran et lors du zoom. La photo du couple est servie séparément depuis `assets/photo_dot_02.webp`; la galerie continue d'utiliser les photos originales fournies par le client.
 
 Sur téléphone, contrôler :
 - les cœurs et les prénoms Sosthene & Ruth ;
 - la photo réelle de la dot, sans déformation ;
-- le verset « Que tout ce que vous faites se fasse avec amour. » (1 Corinthiens 16:14) ;
+- les deux versets choisis, sous le titre « Notre Menu » ;
 - le bouton « Découvrir notre menu » ;
 - l'icône hamburger et les onglets Accueil, Menu, Galerie et Message.
 
