@@ -2,13 +2,27 @@ import { weddingData } from "./src/weddingData.js";
 
 for (const [key, value] of Object.entries({
   welcome: weddingData.welcome,
-  verseText: weddingData.verseText,
-  verseReference: weddingData.verseReference,
   galleryIntro: weddingData.galleryIntro,
   thanks: weddingData.thanks
 })) {
-  const target = document.querySelector(`[data-content="${key}"]`);
+  const target = document.querySelector("[data-content=" + JSON.stringify(key) + "]");
   if (target) target.textContent = value;
+}
+
+const versesContainer = document.querySelector("#menu-verses");
+for (const verse of weddingData.verses) {
+  const card = document.createElement("article");
+  card.className = "menu-verse-card";
+  const ornament = document.createElement("span");
+  ornament.className = "menu-verse-ornament";
+  ornament.setAttribute("aria-hidden", "true");
+  ornament.textContent = "❀";
+  const quote = document.createElement("blockquote");
+  quote.textContent = "« " + verse.text + " »";
+  const reference = document.createElement("cite");
+  reference.textContent = verse.reference;
+  card.append(ornament, quote, reference);
+  versesContainer.append(card);
 }
 
 const menu = document.querySelector("#menu-list");
@@ -16,7 +30,7 @@ const menu = document.querySelector("#menu-list");
 async function loadMenuImage(imagePath) {
   const encodedPath = imagePath + ".b64";
   const response = await fetch(new URL(encodedPath, import.meta.url));
-  if (!response.ok) throw new Error(`Photo de menu introuvable: ${encodedPath}`);
+  if (!response.ok) throw new Error("Photo de menu introuvable: " + encodedPath);
   const encoded = (await response.text()).trim();
   const binary = atob(encoded);
   const bytes = new Uint8Array(binary.length);
@@ -30,7 +44,7 @@ async function renderMenu() {
     card.className = "menu-card menu-card--dish";
 
     const image = document.createElement("img");
-    image.className = `menu-dish-photo menu-dish-photo--${index + 1}`;
+    image.className = "menu-dish-photo menu-dish-photo--" + (index + 1);
     image.alt = dish.alt || dish.title;
     image.loading = index === 0 ? "eager" : "lazy";
     image.decoding = "async";
@@ -79,7 +93,7 @@ for (const photo of weddingData.gallery) {
   const button = document.createElement("button");
   button.type = "button";
   button.className = "gallery-item";
-  button.setAttribute("aria-label", `${photo.caption}, ouvrir en grand`);
+  button.setAttribute("aria-label", photo.caption + ", ouvrir en grand");
   const img = document.createElement("img");
   img.src = photo.src;
   img.alt = photo.alt;
