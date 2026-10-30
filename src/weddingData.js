@@ -4,8 +4,16 @@ export const weddingData = {
   date: "",
   tableNumber: "",
   welcome: "Aujourd’hui, nos cœurs débordent de joie ! Merci de célébrer avec nous cette belle alliance, entourés de nos familles, de nos amis et de l’amour de Dieu. Que cette journée soit remplie de sourires, de partage et de bénédictions.",
-  verseText: "« Que tout ce que vous faites se fasse avec amour. »",
-  verseReference: "1 Corinthiens 16:14",
+  verses: [
+    {
+      text: "Les grandes eaux ne peuvent éteindre l’amour, et les fleuves ne le submergeraient pas.",
+      reference: "Cantique des Cantiques 8:7"
+    },
+    {
+      text: "C’est pourquoi l’homme quittera son père et sa mère, et s’attachera à sa femme, et les deux deviendront une seule chair.",
+      reference: "Éphésiens 5:31"
+    }
+  ],
   galleryIntro: "Quelques moments forts de la cérémonie de la dot, symbole de l’union de nos deux familles. Nous rendons grâce à Dieu pour cette belle histoire et pour tous ceux qui la partagent avec nous.",
   thanks: "Du fond du cœur, merci d’avoir pris part à notre bonheur. Votre présence, vos sourires, vos prières, votre affection et vos bénédictions ont rendu cette célébration encore plus précieuse. Que le Seigneur vous comble de sa paix et de sa grâce, aujourd’hui et toujours. Avec toute notre gratitude, Sosthene & Ruth.",
   menu: [
